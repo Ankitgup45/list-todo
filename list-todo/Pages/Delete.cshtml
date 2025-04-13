@@ -1,0 +1,12 @@
+﻿@page "{id:int}"
+@model TodoApp.Pages.DeleteModel
+
+<h2>Delete Task</h2>
+
+<p>Are you sure you want to delete this task?</p>
+<p><strong>@Model.TodoItem.Task</strong></p>
+
+<form method="post">
+    <button type="submit">Delete</button>
+    <a asp-page="Index">Cancel</a>
+</form>

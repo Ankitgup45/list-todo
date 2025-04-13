@@ -1,0 +1,13 @@
+﻿@page "{id:int}"
+@model TodoApp.Pages.EditModel
+
+<h2>Edit Task</h2>
+
+<form method="post">
+    <input asp-for="TodoItem.Task" />
+    <label>
+        <input asp-for="TodoItem.IsDone" />
+        Mark as Done
+    </label>
+    <button type="submit">Save</button>
+</form>

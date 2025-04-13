@@ -1,0 +1,30 @@
+﻿@page
+@model TodoApp.Pages.IndexModel
+@{
+    ViewData["Title"] = "Todo List";
+}
+
+<h1>My To-Do List</h1>
+
+<form method="post">
+    <input asp-for="NewTask.Task" placeholder="Enter a task..." />
+    <button type="submit">Add Task</button>
+</form>
+
+@if (Model.Tasks.Count > 0)
+{
+    <ul>
+        @foreach (var task in Model.Tasks)
+        {
+            <li>
+                @task.Task - @(task.IsDone ? "Done" : "Pending")
+                <a asp-page="Edit" asp-route-id="@task.Id">Edit</a> |
+                <a asp-page="Delete" asp-route-id="@task.Id">Delete</a>
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No tasks yet!</p>
+}
